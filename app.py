@@ -1,12 +1,17 @@
 
-import sys
 import os
+import sys
+import sqlite3
+
+# Print the version of SQLite3 being used
+print(f"SQLite3 version: {sqlite3.sqlite_version}")
 
 # Apply SQLite patch for Linux environments
 if os.environ.get('STREAMLIT_SERVER_ENVIRONMENT') == 'cloud':
+    # Import pysqlite3 and replace the sqlite3 module
     __import__('pysqlite3')
     sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
+    print("Patch applied: Using pysqlite3 instead of sqlite3")
 
 # THEN do other imports
 import streamlit as st
