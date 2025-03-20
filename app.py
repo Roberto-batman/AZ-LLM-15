@@ -1,40 +1,15 @@
-import streamlit as st
-import os
-import dotenv
-import uuid
-
-""" if os.name == 'posix':
-    import('pysqlite3')
-    import sys
-    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3') """
-
-""" # check if it's linux so it works on Streamlit Cloud
-if os.name == 'posix':
-    __import__('pysqlite3')
-    import sys
-    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3') """
-import sqlite3
-
-""" # Only apply the workaround if running on Streamlit Cloud
-if os.environ.get('STREAMLIT_CLOUD') == 'true':
-    __import__('pysqlite3')
-    import sys
-    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3') """
 
 __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
+import streamlit as st
+import os
+import dotenv
+import uuid
 
-""" # Print the version of SQLite3 being used
-print(f"SQLite3 version: {sqlite3.sqlite_version}")
+import sqlite3
 
-# Apply SQLite patch for Linux environments
-if os.environ.get('STREAMLIT_SERVER_ENVIRONMENT') == 'cloud':
-    # Import pysqlite3 and replace the sqlite3 module
-    __import__('pysqlite3')
-    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-    print("Patch applied: Using pysqlite3 instead of sqlite3") """
 
 # THEN do other imports
 import streamlit as st
