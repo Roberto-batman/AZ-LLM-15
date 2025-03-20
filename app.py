@@ -1,9 +1,30 @@
+import streamlit as st
+import os
+import dotenv
+import uuid
+
+""" if os.name == 'posix':
+    import('pysqlite3')
+    import sys
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3') """
+
+""" # check if it's linux so it works on Streamlit Cloud
+if os.name == 'posix':
+    __import__('pysqlite3')
+    import sys
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3') """
+import sqlite3
+
+""" # Only apply the workaround if running on Streamlit Cloud
+if os.environ.get('STREAMLIT_CLOUD') == 'true':
+    __import__('pysqlite3')
+    import sys
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3') """
+
 __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
-import os
-import sqlite3
 
 """ # Print the version of SQLite3 being used
 print(f"SQLite3 version: {sqlite3.sqlite_version}")
