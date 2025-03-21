@@ -179,7 +179,7 @@ else:
     elif model_provider == "azure-openai":
         llm_stream = AzureChatOpenAI(
             azure_endpoint=os.getenv("AZ_OPENAI_ENDPOINT"),
-            openai_api_version="2024-12-01-preview", # was  "2024-02-15-preview"
+            openai_api_version="2024-05-01-preview", # originally was "2024-02-15-preview", then tried "2024-12-01-preview"
             model_name=st.session_state.model.split("/")[-1],
             openai_api_key=os.getenv("AZ_OPENAI_API_KEY"),
             openai_api_type="azure",
