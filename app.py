@@ -45,7 +45,7 @@ print(f'Models list =:', MODELS)
 
 
 st.set_page_config(
-    page_title="RAG LLM app?", 
+    page_title=" AI with RAG", 
     page_icon="📚", 
     layout="centered", 
     initial_sidebar_state="expanded"
@@ -53,7 +53,7 @@ st.set_page_config(
 
 
 # --- Header ---
-st.html("""<h2 style="text-align: center;">📚🔍 <i> Do your LLM even RAG bro? </i> 🤖💬</h2>""")
+st.html("""<h2 style="text-align: center;">📚🔍 <i> AI with Retrieval Augmented Generation (RAG) </i> 🤖💬</h2>""")
 
 
 # --- Initial Setup ---
@@ -142,7 +142,7 @@ else:
         # File upload input for RAG with documents
         st.file_uploader(
             "📄 Upload a document", 
-            type=["pdf", "txt", "docx", "md"],
+            type=["pdf", "txt", "docx"],
             accept_multiple_files=True,
             on_change=load_doc_to_db,
             key="rag_docs",
